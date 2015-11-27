@@ -1,4 +1,4 @@
-# kube-aws CLI for building Kubernetes on AWS - built from Debian
+# kube-aws CLI for building Kubernetes on AWS - built from Ubuntu base
 
 # Requirements
 
