@@ -1,4 +1,13 @@
-# kube-aws CLI for building Kubernetes on AWS - built from Google's Debian Wheezy base
+# kube-aws CLI for building Kubernetes on AWS
+
+# Summary
+
+- A Docker build for the kube-aws command line tool, used to build Kubernetes on AWS. For more info, see [Kubernetes on AWS](https://github.com/coreos/coreos-kubernetes/tree/master/multi-node/aws)
+- This image is built from the Alpine Linux base image and is just 23MB in size.
+
+```
+kube-aws     latest              57d71b91722f        About a minute ago   23.15 MB
+```
 
 # Requirements
 
