@@ -14,28 +14,24 @@ kube-aws     latest              57d71b91722f        About a minute ago   23.15 
 - Docker :whale: - if you are on Mac, checkout the [Docker Toolbox](http://docs.docker.com/mac/step_one/)
 - An AWS account and API credentials - [AWS](https://aws.amazon.com/)
 
-# Usage
+# Building and Running
 
-- Add AWS credentials to the example-credentials file and rename to credentials - for help, see the [AWS CLI Guide](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-file)
-```bash
-[default]
-aws_access_key_id=###
-aws_secret_access_key=###
-region=###
-```
 - Create a local cluster.yaml config file - for help, see the [Kube AWS Cluster Config](https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html#kube-aws-cluster-config) 
 - Build the image using docker
 ```bash
 $ docker build -t kube-aws .
 ```
-- Use the AWS CLI
+- Use the kube-aws tool
 ```bash
-$ docker run --rm aws-cli kube-aws up
+$ docker run -v $(pwd):/root/ -e AWS_ACCESS_KEY_ID='foo' -e AWS_SECRET_ACCESS_KEY='bar' -e AWS_DEFAULT_REGION='eu-west-1' --rm kube-aws kube-aws up
 ```
 
-# NOTE
+# Use the Docker Hub automated build
 
-**Please be careful not to push your AWS credentials to Github! :scream:**
+- To use the automated build from Docker Hub, run:
+```bash
+$ docker pull danielwhatmuff/kube-aws-docker
+```
 
 ### Contributing
 File issues in GitHub to report bugs or issue a pull request to contribute.
