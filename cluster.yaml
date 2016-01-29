@@ -1,14 +1,14 @@
 # Unique name of Kubernetes cluster. In order to deploy
 # more than one cluster into the same AWS account, this
 # name must not conflict with an existing cluster.
-# clusterName: kubernetes
+clusterName: test-kubernetes-cluster
 
 # Name of the SSH keypair already loaded into the AWS
 # account being used to deploy this cluster.
-keyName:
+keyName: yourkey
 
 # Region to provision Kubernetes cluster
-region:
+region: eu-west-1
 
 # Availability Zone to provision Kubernetes cluster
 #availabilityZone:
@@ -16,22 +16,22 @@ region:
 # DNS name routable to the Kubernetes controller nodes
 # from worker nodes and external clients. The deployer
 # is responsible for making this name routable
-externalDNSName:
+externalDNSName: testing.kube.com
 
 # Instance type for controller node
-#controllerInstanceType: m3.medium
+controllerInstanceType: t2.nano
 
 # Disk size (GiB) for controller node
-#controllerRootVolumeSize: 30
+controllerRootVolumeSize: 10
 
 # Number of worker nodes to create
-#workerCount: 1
+workerCount: 1
 
 # Instance type for worker nodes
-#workerInstanceType: m3.medium
+workerInstanceType: t2.nano
 
 # Disk size (GiB) for worker nodes
-#workerRootVolumeSize: 30
+workerRootVolumeSize: 10
 
 # Location of kube-aws artifacts used to deploy a new
 # Kubernetes cluster. The necessary artifacts are already
