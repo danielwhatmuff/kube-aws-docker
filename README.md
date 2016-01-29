@@ -14,7 +14,7 @@ kube-aws     latest              57d71b91722f        About a minute ago   23.15 
 - Docker :whale: - if you are on Mac, checkout the [Docker Toolbox](http://docs.docker.com/mac/step_one/)
 - An AWS account and API credentials - [AWS](https://aws.amazon.com/)
 
-# Building and Interacting
+# Building the Docker Image and Provisioning a Kubernetes Cluster
 
 - Create a local cluster.yaml config file - for help, see the [Kube AWS Cluster Config](https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html#kube-aws-cluster-config) 
 - Build the image using docker
