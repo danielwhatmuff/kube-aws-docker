@@ -1,37 +1,37 @@
 # Unique name of Kubernetes cluster. In order to deploy
 # more than one cluster into the same AWS account, this
 # name must not conflict with an existing cluster.
-# clusterName: kubernetes
+clusterName: kubernetes-dev
 
 # Name of the SSH keypair already loaded into the AWS
 # account being used to deploy this cluster.
-keyName:
+keyName: <ssh key pair name from AWS>
 
 # Region to provision Kubernetes cluster
-region:
+region: eu-west-1
 
 # Availability Zone to provision Kubernetes cluster
-#availabilityZone:
+availabilityZone: eu-west-1a
 
 # DNS name routable to the Kubernetes controller nodes
 # from worker nodes and external clients. The deployer
 # is responsible for making this name routable
-externalDNSName:
+externalDNSName: kubernetes.example.com
 
 # Instance type for controller node
-#controllerInstanceType: m3.medium
+controllerInstanceType: t2.small
 
 # Disk size (GiB) for controller node
-#controllerRootVolumeSize: 30
+controllerRootVolumeSize: 20
 
 # Number of worker nodes to create
-#workerCount: 1
+workerCount: 2
 
 # Instance type for worker nodes
-#workerInstanceType: m3.medium
+workerInstanceType: t2.small
 
 # Disk size (GiB) for worker nodes
-#workerRootVolumeSize: 30
+workerRootVolumeSize: 20
 
 # Location of kube-aws artifacts used to deploy a new
 # Kubernetes cluster. The necessary artifacts are already
@@ -41,22 +41,22 @@ externalDNSName:
 #artifactURL: https://coreos-kubernetes.s3.amazonaws.com/<VERSION>
 
 # CIDR for Kubernetes VPC
-# vpcCIDR: "10.0.0.0/16"
+vpcCIDR: "10.0.0.0/16"
 
 # CIDR for Kubernetes subnet
-# instanceCIDR: "10.0.0.0/24"
+instanceCIDR: "10.0.0.0/24"
 
 # IP Address for controller in Kubernetes subnet
-# controllerIP: 10.0.0.50
+controllerIP: 10.0.0.50
 
 # CIDR for all service IP addresses
-# serviceCIDR: "10.3.0.0/24"
+serviceCIDR: "10.3.0.0/24"
 
 # CIDR for all pod IP addresses
-# podCIDR: "10.2.0.0/16"
+podCIDR: "10.2.0.0/16"
 
 # IP address of Kubernetes controller service (must be contained by serviceCIDR)
-# kubernetesServiceIP: 10.3.0.1
+kubernetesServiceIP: 10.3.0.1
 
 # IP address of Kubernetes dns service (must be contained by serviceCIDR)
-# dnsServiceIP: 10.3.0.10
+dnsServiceIP: 10.3.0.10
