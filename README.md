@@ -9,6 +9,8 @@
 kube-aws     latest              57d71b91722f        About a minute ago   23.15 MB
 ```
 
+[![](https://badge.imagelayers.io/danielwhatmuff/kube-aws-docker:latest.svg)](https://imagelayers.io/?images=danielwhatmuff/kube-aws-docker:latest 'Inspect Docker images at imagelayers.io')
+
 # Requirements
 
 - Docker :whale: - if you are on Mac, checkout the [Docker Toolbox](http://docs.docker.com/mac/step_one/)
