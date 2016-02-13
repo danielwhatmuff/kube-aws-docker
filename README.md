@@ -1,13 +1,9 @@
-# kube-aws tool for building a Kubernetes cluster on AWS
+# kube-aws tool for provisioning a CoreOS/Kubernetes cluster on AWS
 
 # Summary
 
 - A Docker build for the kube-aws command line tool, used to build Kubernetes on AWS. For more info, see [Kubernetes on AWS](https://github.com/coreos/coreos-kubernetes/tree/master/multi-node/aws)
-- This image is built from the Alpine Linux base image and is just 23MB in size.
-
-```
-kube-aws     latest              57d71b91722f        About a minute ago   23.15 MB
-```
+- This image is built from the Alpine Linux base image.
 
 [![](https://badge.imagelayers.io/danielwhatmuff/kube-aws-docker:latest.svg)](https://imagelayers.io/?images=danielwhatmuff/kube-aws-docker:latest 'Inspect Docker images at imagelayers.io')
 
