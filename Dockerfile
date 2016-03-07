@@ -13,6 +13,6 @@ RUN curl -L https://github.com/coreos/coreos-kubernetes/releases/download/v${KUB
      rm -f /tmp/kube-aws-linux-amd64.tar.gz && \
      kube-aws version
 
-ADD cluster.example.yaml /root/cluster.example.yaml
+ADD cluster.yaml.example /root/cluster.yaml.example
 
 CMD ["kube-aws"]
