@@ -19,7 +19,7 @@
 ```bash
 $ docker build -t kube-aws .
 ```
-- Run the kube-aws container to provision a cluster
+- Run the kube-aws container to provision a cluster - (mount the directory containing your cluster.yaml)
 ```bash
 $ docker run -v $(pwd):/root/ -e AWS_ACCESS_KEY_ID='foo' -e AWS_SECRET_ACCESS_KEY='bar' -e AWS_DEFAULT_REGION='eu-west-1' --rm kube-aws kube-aws up
 ```
@@ -27,6 +27,7 @@ $ docker run -v $(pwd):/root/ -e AWS_ACCESS_KEY_ID='foo' -e AWS_SECRET_ACCESS_KE
 ```bash
 $ kubectl --kubeconfig=clusters/<cluster-name>/kubeconfig get nodes
 ```
+- Or use [danielwhatmuff/kubectl Docker image](https://github.com/danielwhatmuff/kubectl)
 - To destroy the cluster, run:
 ```bash
 $ docker run -v $(pwd):/root/ -e AWS_ACCESS_KEY_ID='foo' -e AWS_SECRET_ACCESS_KEY='bar' -e AWS_DEFAULT_REGION='eu-west-1' --rm kube-aws kube-aws destroy <cluster-name>
