@@ -14,29 +14,23 @@
 
 # To build the Docker image and provision a cluster
 
-- Create a local cluster.yaml config file - for help, see the [Kube AWS Cluster Config](https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html#kube-aws-cluster-config) 
-- Build the image using docker
+### AWS Credentials
+- The supported way to provide AWS credentials to kube-aws is by exporting the following environment variables:
 ```bash
-$ docker build -t kube-aws .
-```
-- Run the kube-aws container to provision a cluster - (mount the directory containing your cluster.yaml)
-```bash
-$ docker run -v $(pwd):/root/ -e AWS_ACCESS_KEY_ID='foo' -e AWS_SECRET_ACCESS_KEY='bar' -e AWS_DEFAULT_REGION='eu-west-1' --rm kube-aws kube-aws up
-```
-- A kubectl config file will then be written to ./clusters/<cluster-name>/kubeconfig, which can be used to interact with your Kubernetes cluster like so:
-```bash
-$ kubectl --kubeconfig=clusters/<cluster-name>/kubeconfig get nodes
-```
-- Or use [danielwhatmuff/kubectl Docker image](https://github.com/danielwhatmuff/kubectl)
-- To destroy the cluster, run:
-```bash
-$ docker run -v $(pwd):/root/ -e AWS_ACCESS_KEY_ID='foo' -e AWS_SECRET_ACCESS_KEY='bar' -e AWS_DEFAULT_REGION='eu-west-1' --rm kube-aws kube-aws destroy <cluster-name>
+export AWS_ACCESS_KEY_ID=AKID1234567890
+export AWS_SECRET_ACCESS_KEY=MY-SECRET-KEY
 ```
 
-# Alternatively, you can use the Docker Hub automated build
+### Cluster Assets
 
+- Follow the kube-aws README to create the KMS key and cluster assets [README](https://github.com/coreos/coreos-kubernetes/blob/master/multi-node/aws/README.md)
+- Run the container and mount the cluster assets to validate, render and provision.
 ```bash
-$ docker pull danielwhatmuff/kube-aws-docker
+$ docker run -v $(pwd):/root/ --rm danielwhatmuff/kube-aws-docker kube-aws < render | validate | up >
+```
+- Control the cluster using [danielwhatmuff/kubectl Docker image](https://github.com/danielwhatmuff/kubectl)
+```bash
+$ kubectl --kubeconfig=kubeconfig get nodes
 ```
 
 ### Contributing
