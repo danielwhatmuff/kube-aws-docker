@@ -6,7 +6,7 @@ MAINTAINER "Daniel Whatmuff" <danielwhatmuff@gmail.com>
 
 WORKDIR /root/
 
-ENV KUBE_AWS_VERSION 0.6.0
+ENV KUBE_AWS_VERSION 0.6.1
 
 RUN curl -L https://github.com/coreos/coreos-kubernetes/releases/download/v${KUBE_AWS_VERSION}/kube-aws-linux-amd64.tar.gz -o /tmp/kube-aws-linux-amd64.tar.gz && \
     tar -zxvf /tmp/kube-aws-linux-amd64.tar.gz linux-amd64/kube-aws && \
