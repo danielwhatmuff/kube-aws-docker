@@ -1,7 +1,5 @@
 FROM gliderlabs/alpine:3.4
 
-MAINTAINER "Daniel Whatmuff" <danielwhatmuff@gmail.com>
-
 RUN adduser -h /home/kube-aws -D kube-aws
 WORKDIR /home/kube-aws/
 
