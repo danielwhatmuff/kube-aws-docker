@@ -1,19 +1,22 @@
-FROM gliderlabs/alpine:3.3
+FROM gliderlabs/alpine:3.4
 
-RUN apk-install curl
+RUN adduser -h /home/kube-aws -D kube-aws
+WORKDIR /home/kube-aws/
 
-MAINTAINER "Daniel Whatmuff" <danielwhatmuff@gmail.com>
+ENV KUBE_AWS_VERSION 0.8.3
+RUN apk-install \
+      curl \
+      ca-certificates \
+    && update-ca-certificates \
+    && curl -L https://github.com/coreos/coreos-kubernetes/releases/download/v${KUBE_AWS_VERSION}/kube-aws-linux-amd64.tar.gz -o /tmp/kube-aws-linux-amd64.tar.gz \
+    && tar -zxvf /tmp/kube-aws-linux-amd64.tar.gz linux-amd64/kube-aws \
+    && mv linux-amd64/kube-aws /usr/local/bin/ \
+    && chmod +x /usr/local/bin/kube-aws \
+    && apk del curl \
+    && rmdir linux-amd64/ \
+    && rm -f /tmp/kube-aws-linux-amd64.tar.gz\
+    && kube-aws version
 
-WORKDIR /root/
-
-ENV KUBE_AWS_VERSION 0.6.1
-
-RUN curl -L https://github.com/coreos/coreos-kubernetes/releases/download/v${KUBE_AWS_VERSION}/kube-aws-linux-amd64.tar.gz -o /tmp/kube-aws-linux-amd64.tar.gz && \
-    tar -zxvf /tmp/kube-aws-linux-amd64.tar.gz linux-amd64/kube-aws && \
-    mv linux-amd64/kube-aws /usr/local/bin/  && \
-    rmdir linux-amd64/ && \
-    chmod +x /usr/local/bin/kube-aws && \
-    rm -f /tmp/kube-aws-linux-amd64.tar.gz && \
-    kube-aws version
+USER kube-aws
 
 CMD ["kube-aws"]
